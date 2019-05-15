@@ -10,11 +10,12 @@ import UIKit
 
 class ViewController: UIViewController
 {
-
+    //for class LearnerModel and LearnerHandsOn
     @IBOutlet weak var learnerNameLabel: UILabel!
     @IBOutlet weak var learnerAgeLabel: UILabel!
     @IBOutlet weak var learnerGenderLabel: UILabel!
     
+    //for class FacilitatorModel
     @IBOutlet weak var learnerSnareLabel: UILabel!
     @IBOutlet weak var learnerWoodLabel: UILabel!
     @IBOutlet weak var learnerTuningLabel: UILabel!
@@ -31,57 +32,72 @@ class ViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //initiation for class LearnerModel
         learnerInstance = LearnerModel(nameLearner: "Rajab", ageLearner: 24, genderLearner: "Male", imageProfileLearner: "")
+        
+        //initiation for class LearnerHandsOn
         learnerHandsOnInstance = LearnerHandsOn(snareType: "Nylon", woodType: "Mahogany", tuningType: "Standard", brandName: "Something")
+        
+        //initiation for class LearnerModel
         facilitatorInstance = FacilitatorModel(facilName: "Petrucci", facilAge: 47, facilGender: "Male", facilImageProfile: "", facilPerk: "Unlimited Starbuck on Friday")
+        
+        //update ui after initiation
         updateUI()
     }
     
+    //function for connect ui to instance
     func updateUI()
     {
-        /*
-        if let instance = learnerInstance {
+        //connect label in uikit to instance in class LearnerModel
+        if let instance = learnerInstance
+        {
             learnerNameLabel.text = instance.name
-            learnerAgeLabel.text = " \(instance.age)"
+            learnerAgeLabel.text = "\(instance.age)"
             learnerGenderLabel.text = instance.gender
-         */
+        }
         
+        //connect label in uikit to instance in class LearnerHandsOn
         if let instance = learnerHandsOnInstance
         {
             learnerSnareLabel.text = instance.snare
             learnerWoodLabel.text = instance.wood
             learnerTuningLabel.text = instance.tuning
             learnerBrandLabel.text = instance.brand
-            
         }
         
+        //connect label in uikit to instance in class FacilitatorModel
         if let instance = facilitatorInstance
         {
             learnerNameLabel.text = instance.name
-            learnerAgeLabel.text = " \(instance.age)"
+            learnerAgeLabel.text = "\(instance.age)"
             learnerGenderLabel.text = instance.gender
         }
-    
     }
     
+    //function for plus button
     @IBAction func increaseAgeButtonClicked(_ sender: UIButton)
     {
-        
+        //call method in class LearnerModel
         if let instance = learnerInstance
         {
             instance.increaseAge()
         }
+        
+        //call method in class LearnerHandsOn
         if let instance = learnerHandsOnInstance
         {
             instance.changeToSnare()
          
         }
- 
+        
+        //call method in class FacilitatorModel and it's superclass
         if let instance = facilitatorInstance
-            {
+        {
             instance.increaseAge()
             instance.coachMentee()
-            }
+        }
+        
+        //update ui after button clicked
         updateUI()
     
     

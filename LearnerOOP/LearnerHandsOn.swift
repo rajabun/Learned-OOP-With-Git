@@ -8,20 +8,23 @@
 
 import Foundation
 
-class LearnerHandsOn {
+class LearnerHandsOn
+{
     var snare: String
     let wood: String
     let tuning: String
     let brand: String
     
-    init(snareType: String, woodType: String, tuningType: String, brandName: String) {
+    init(snareType: String, woodType: String, tuningType: String, brandName: String)
+    {
         self.snare = snareType
         self.wood = woodType
         self.tuning = tuningType
         self.brand = brandName
     }
     
-    func changeToSnare() {
+    func changeToSnare()
+    {
         self.snare = "Steel"
     }
     

@@ -8,7 +8,8 @@
 
 import Foundation
 
-class FacilitatorModel: LearnerModel {
+class FacilitatorModel: LearnerModel
+{
     var perk: String
     
     init(facilName: String, facilAge: Int, facilGender: String, facilImageProfile: String, facilPerk: String)
@@ -17,7 +18,8 @@ class FacilitatorModel: LearnerModel {
         super.init(nameLearner: facilName, ageLearner: facilAge, genderLearner: facilGender, imageProfileLearner: facilImageProfile)
     }
     
-    func coachMentee() {
+    func coachMentee()
+    {
         print("Coaching Mentee")
     }
 }

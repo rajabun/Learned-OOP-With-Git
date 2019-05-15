@@ -8,21 +8,27 @@
 
 import Foundation
 
-class LearnerModel {
+class LearnerModel
+{
+    //properties or attributes or instance variables
     var name: String
     var age: Int
     var gender: String
     var imageProfile: String //karena sudah pakai tipe data primitif sebelumnya, untuk standarisasi
     
-    init(nameLearner: String, ageLearner: Int, genderLearner: String, imageProfileLearner: String) {
+    //initializer
+    init(nameLearner: String, ageLearner: Int, genderLearner: String, imageProfileLearner: String)
+    {
         self.name = nameLearner
         self.age = ageLearner
         self.gender = genderLearner
         self.imageProfile = imageProfileLearner
-        
+        //self mirip kayak .this di java
     }
     
-    func increaseAge() {
+    //method
+    func increaseAge()
+    {
         self.age += 1
     }
 }
