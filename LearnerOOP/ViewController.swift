@@ -8,31 +8,37 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
 
     @IBOutlet weak var learnerNameLabel: UILabel!
     @IBOutlet weak var learnerAgeLabel: UILabel!
     @IBOutlet weak var learnerGenderLabel: UILabel!
+    
     @IBOutlet weak var learnerSnareLabel: UILabel!
     @IBOutlet weak var learnerWoodLabel: UILabel!
     @IBOutlet weak var learnerTuningLabel: UILabel!
     @IBOutlet weak var learnerBrandLabel: UILabel!
     
-    //var learnerInstance: LearnerModel? //You just create a copy of your LearnerModel
+    var learnerInstance: LearnerModel? //You just create a copy of your LearnerModel
     
-    var learnerInstance: LearnerHandsOn? //You just create a copy of your LearnerHandsOn
+    var learnerHandsOnInstance: LearnerHandsOn? //You just create a copy of your LearnerHandsOn
     
-    override func viewDidLoad() {
+    var facilitatorInstance: FacilitatorModel? //You just create a copy of your FacilitatorModel
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        /*
+        
         learnerInstance = LearnerModel(nameLearner: "Rajab", ageLearner: 24, genderLearner: "Male", imageProfileLearner: "")
-        */
-        learnerInstance = LearnerHandsOn(snareType: "Nylon", woodType: "Mahogany", tuningType: "Standard", brandName: "Something")
+        learnerHandsOnInstance = LearnerHandsOn(snareType: "Nylon", woodType: "Mahogany", tuningType: "Standard", brandName: "Something")
+        facilitatorInstance = FacilitatorModel(facilName: "Petrucci", facilAge: 47, facilGender: "Male", facilImageProfile: "", facilPerk: "Unlimited Starbuck on Friday")
         updateUI()
     }
     
-    func updateUI() {
+    func updateUI()
+    {
         /*
         if let instance = learnerInstance {
             learnerNameLabel.text = instance.name
@@ -40,29 +46,46 @@ class ViewController: UIViewController {
             learnerGenderLabel.text = instance.gender
          */
         
-        if let instance = learnerInstance {
+        if let instance = learnerHandsOnInstance
+        {
             learnerSnareLabel.text = instance.snare
             learnerWoodLabel.text = instance.wood
             learnerTuningLabel.text = instance.tuning
             learnerBrandLabel.text = instance.brand
             
         }
-    
-    }
-    
-    @IBAction func increaseAgeButtonClicked(_ sender: UIButton) {
-        /*
-        if let instance = learnerInstance {
-            instance.increaseAge()
-         */
-        if let instance = learnerInstance {
-            instance.changeToSnare()
-            updateUI()
-        }
         
+        if let instance = facilitatorInstance
+        {
+            learnerNameLabel.text = instance.name
+            learnerAgeLabel.text = " \(instance.age)"
+            learnerGenderLabel.text = instance.gender
+        }
+    
     }
+    
+    @IBAction func increaseAgeButtonClicked(_ sender: UIButton)
+    {
+        
+        if let instance = learnerInstance
+        {
+            instance.increaseAge()
+        }
+        if let instance = learnerHandsOnInstance
+        {
+            instance.changeToSnare()
+         
+        }
+ 
+        if let instance = facilitatorInstance
+            {
+            instance.increaseAge()
+            instance.coachMentee()
+            }
+        updateUI()
     
     
     //tambah comment baru
-}
+    }
 
+}
