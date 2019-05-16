@@ -4,7 +4,8 @@
 //
 //  Created by Muhammad Rajab Priharsanto on 15/05/19.
 //  Copyright © 2019 Muhammad Rajab Priharsanto. All rights reserved.
-//
+//  Tutorial : https://learnappmaking.com/object-oriented-programming-oop-swift-introduction/
+// https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html
 
 import Foundation
 

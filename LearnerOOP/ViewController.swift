@@ -21,6 +21,12 @@ class ViewController: UIViewController
     @IBOutlet weak var learnerTuningLabel: UILabel!
     @IBOutlet weak var learnerBrandLabel: UILabel!
     
+    //? means optional type which is a type that can hold either a value or no value
+    
+    //To use properties and methods in LearnerModel Class :
+    //Create a variable with Data Type = LearnerModel
+    
+    //Properties (We can write anything): Data Type (Class)
     var learnerInstance: LearnerModel? //You just create a copy of your LearnerModel
     
     var learnerHandsOnInstance: LearnerHandsOn? //You just create a copy of your LearnerHandsOn
@@ -48,7 +54,9 @@ class ViewController: UIViewController
     //function for connect ui to instance
     func updateUI()
     {
-        //connect label in uikit to instance in class LearnerModel
+        //The Conditional Unwrapping with “if let” allows us to unwrap optional values safely only when there is a value, and if not, the code block will not run.
+        
+        //connect label in uikit to properties in class LearnerModel
         if let instance = learnerInstance
         {
             learnerNameLabel.text = instance.name
@@ -56,7 +64,7 @@ class ViewController: UIViewController
             learnerGenderLabel.text = instance.gender
         }
         
-        //connect label in uikit to instance in class LearnerHandsOn
+        //connect label in uikit to properties in class LearnerHandsOn
         if let instance = learnerHandsOnInstance
         {
             learnerSnareLabel.text = instance.snare
@@ -65,7 +73,7 @@ class ViewController: UIViewController
             learnerBrandLabel.text = instance.brand
         }
         
-        //connect label in uikit to instance in class FacilitatorModel
+        //connect label in uikit to properties in class FacilitatorModel
         if let instance = facilitatorInstance
         {
             learnerNameLabel.text = instance.name
@@ -103,5 +111,11 @@ class ViewController: UIViewController
     
     //tambah comment baru
     }
+    
+    //Go to the next page with Segue Function
+    @IBAction func nextPageButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "mySegue", sender: self)
+    }
+    
 
 }
